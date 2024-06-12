@@ -8,3 +8,4 @@ while [[ $i -le 10 ]]; do
 		echo 'bad luck'
 	else
 		echo 'Best School'
+	((i++))
