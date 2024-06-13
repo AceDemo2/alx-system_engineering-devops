@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+#print
+while IFS=: read -r i n m j o k l; do
+	echo "The user $i is part of the $j, lives in $k and rides $l. $m's place is protected by the passcode $n, more info about the user here: $o"
+done < /etc/passwd
