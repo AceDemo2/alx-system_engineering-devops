@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+#print
+while IFS=: read -r i _ j _ _ k; do
+	echo "$i:$j:$k"
+done < /etc/passwd
