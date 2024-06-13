@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #print
-i=$(ls school)
+i="school"
 if [[ -e "$i" ]]; then
 	echo "school file exists"
 	if [[ ! -s "$i" ]]; then
