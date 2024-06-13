@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #print
 for i in *; do
-	j=$(cut -d '-' --complement -f 1 "$i")
+	j="$(cut -d '-' --complement -f 1 "$i")"
 	echo "$j"
 done
