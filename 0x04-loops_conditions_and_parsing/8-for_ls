@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #print
 for i in *; do
-	j="$(echo $i | cut -d '-' -f 2)"
+	j="$(echo "$i" | cut -d '-' -f 2)"
 	echo "$j"
 done
