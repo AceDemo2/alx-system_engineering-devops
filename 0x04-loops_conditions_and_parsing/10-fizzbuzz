@@ -10,3 +10,6 @@ while [ $i -le 100 ]; do
 		echo "Buzz"
 	else
 		echo "$i"
+	fi
+	((i++))
+done
