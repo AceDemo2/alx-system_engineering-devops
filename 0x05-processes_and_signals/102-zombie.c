@@ -7,21 +7,21 @@
  */
 int infinite_while(void)
 {
-    while (1)
-    {
-        sleep(1);
-    }
-    return (0);
+	while (1)
+	{
+		sleep(1);
+	}
+	return (0);
 }
 /**
  * main - creates 5 zombie processes.
  * Return: 0 on success
  */
-int main()
+int main(void)
 {
 	int i;
 	pid_t j;
-	
+
 	for (i = 0; i < 5; i++)
 	{
 		j = fork();
