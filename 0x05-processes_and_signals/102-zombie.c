@@ -25,7 +25,7 @@ int main()
 	for (i = 0; i < 5; i++)
 	{
 		j = fork();
-		if (i == 0)
+		if (j == 0)
 			exit(0);
 	}
 	infinite_while();
