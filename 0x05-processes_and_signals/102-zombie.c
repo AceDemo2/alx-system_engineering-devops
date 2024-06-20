@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 /**
- * infinite_while - runs an infinite loop with a sleep of 1 second in each iteration.
+ * infinite_while - runs an infinite loop with a sleep of 1 second.
  * Return: 0 always
  */
 int infinite_while(void)
