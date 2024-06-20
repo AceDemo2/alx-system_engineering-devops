@@ -26,7 +26,7 @@ int main(void)
 	{
 		j = fork();
 		if (j > 0)
-			printf("Zombie process created, PID: %d\n", i);
+			printf("Zombie process created, PID: %d\n", j);
 		else
 			exit(0);
 	}
