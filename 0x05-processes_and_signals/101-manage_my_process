@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 #manages file
 case "$1" in
-	start)i
+	start)
 		./manage_my_process &
 		echo $! > /var/run/my_process.pid
 		echo 'manage_my_process started'
