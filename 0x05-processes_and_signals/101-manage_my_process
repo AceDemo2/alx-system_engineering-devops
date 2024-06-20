@@ -8,11 +8,11 @@ case "$1" in
 		;;
 	stop)
 		echo 'manage_my_process stopped'
-		pkill -f manage_my_process
+		kill "$(cat /var/run/my_process.pid)"
 		rm -f /var/run/my_process.pid
 		;;
 	restart)
-		pkill -f manage_my_process
+		kill "$(cat /var/run/my_process.pid)"
 		rm -f /var/run/my_process.pid
 		./manage_my_process &
                 echo $! > /var/run/my_process.pid
