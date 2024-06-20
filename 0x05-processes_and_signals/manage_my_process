@@ -1,6 +1,6 @@
 #!usr/bin/env bash
 #writes
 while true; do
-	sudo echo 'I am alive!' >> /tmp/my_process
+	echo 'I am alive!' >> /tmp/my_process
 	sleep 2
 done
