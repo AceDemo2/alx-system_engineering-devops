@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 #manages file
 case "$1" in
-	start)
-		./manage_my_process
+	start)i
+		./manage_my_process &
 		echo $! > /var/run/my_process.pid
 		echo 'manage_my_process started'
 		;;
@@ -15,7 +15,7 @@ case "$1" in
 		pkill -f manage_my_process
 		rm -f /var/run/my_process.pid
 		./manage_my_process
-                echo $$ > /var/run/my_process.pid
+                echo $! > /var/run/my_process.pid
 		echo 'manage_my_process restarted'
 		;;
 	*)
