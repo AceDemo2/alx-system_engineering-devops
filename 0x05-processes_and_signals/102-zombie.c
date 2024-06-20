@@ -29,4 +29,5 @@ int main()
 			exit(0);
 	}
 	infinite_while();
+	return (0);
 }
