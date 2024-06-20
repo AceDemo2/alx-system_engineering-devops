@@ -1,4 +1,4 @@
-#!usr/bin/env bash
+#!/usr/bin/env bash
 #writes
 while true; do
 	sudo bash -c 'echo "I am alive!" >> /tmp/my_process'
