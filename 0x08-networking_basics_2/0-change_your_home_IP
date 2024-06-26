@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+#ip address change
+cp /etc/hosts /etc/ho
+echo "127.0.0.2 localhost" >> /etc/hosts
+echo "8.8.8.8 facebook" >> /etc/hosts
+cp -f /etc/ho /etc/hosts
