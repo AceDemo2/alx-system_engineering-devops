@@ -1,4 +1,5 @@
-P address change script
+#!/usr/bin/env bash
+#change ip address
 
 # Backup the original /etc/hosts file
 sudo cp /etc/hosts /etc/hosts.bak
