@@ -1,7 +1,6 @@
-#!/usr/bin/env bash
+#!/usr/bin/env bash
 #change ip address
 sudo cp /etc/hosts /etc/hosts.bak
 # Clear the /etc/hosts file and add the required entries
 sudo bash -c 'echo "127.0.0.2 localhost" > /etc/hosts'
 sudo bash -c 'echo "8.8.8.8 facebook" >> /etc/hosts'
-
