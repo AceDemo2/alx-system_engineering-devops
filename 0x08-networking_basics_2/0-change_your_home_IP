@@ -1,22 +1,9 @@
-#!/usr/bin/env bash
-# IP address change script
+P address change script
 
 # Backup the original /etc/hosts file
 sudo cp /etc/hosts /etc/hosts.bak
 
-# Create a temporary file for modifications
-tmpfile=$(mktemp)
-
-# Copy the original contents to the temporary file
-sudo cp /etc/hosts "$tmpfile"
-
-# Append the new entries to the temporary file
-echo "127.0.0.2 localhost" | sudo tee -a "$tmpfile"
-echo "8.8.8.8 facebook" | sudo tee -a "$tmpfile"
-
-# Overwrite the original /etc/hosts with the modified temporary file
-sudo cp -f "$tmpfile" /etc/hosts
-
-# Clean up the temporary file
-sudo rm "$tmpfile"
+# Clear the /etc/hosts file and add the required entries
+sudo bash -c 'echo "127.0.0.2 localhost" > /etc/hosts'
+sudo bash -c 'echo "8.8.8.8 facebook" >> /etc/hosts'
 
