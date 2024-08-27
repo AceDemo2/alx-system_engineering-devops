@@ -13,6 +13,6 @@ if __name__ == '__main__':
     for i in tasks:
         if i.get('completed'):
             content.append(i.get('title'))
-    print(f'Employee {name} is done with tasks({len(content)}/{len(tasks)}): ')
+    print(f'Employee {name} is done with tasks({len(content)}/{len(tasks)}):')
     for j in content:
-        print('\t ' + j)
+        print("\t " + j)
