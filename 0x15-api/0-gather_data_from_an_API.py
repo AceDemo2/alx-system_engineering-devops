@@ -15,4 +15,4 @@ if __name__ == '__main__':
             content.append(i.get('title'))
     print(f'Employee {name} is done with tasks({len(content)}/{len(tasks)}):')
     for j in content:
-        print("\t " + j)
+        print(f"\t {j}")
