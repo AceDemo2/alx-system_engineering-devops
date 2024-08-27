@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 import requests
 import sys
+'''get'''
 
 if __name__ == '__main__':
     url = 'https://jsonplaceholder.typicode.com'
