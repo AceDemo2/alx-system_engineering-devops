@@ -7,8 +7,10 @@ import requests
 if __name__ == '__main__':
     url = 'https://jsonplaceholder.typicode.com'
     usrid = 1
-    response = requests.get(url + '/users/' + usrid).json()
-    while respose:
+    while True:
+        response = requests.get(url + '/users/' + usrid).json()
+        if not response:
+            break
         tasks = requests.get(url + '/todos', params={'userId': usrid}).json()
         name = response.get('username')
         dic = {str(usrid): []}
