@@ -12,7 +12,7 @@ if __name__ == '__main__':
     tasks = requests.get(url + '/todos', params={'userId': sys.argv[1]}).json()
     name = response.get('username')
     with open(f'{usrid}.json', 'w') as jsonf:
-        dic = {'usrid': []}
+        dic = {usrid: []}
         for task in tasks:
             tstatus = task.get('completed')
             title = task.get('title')
