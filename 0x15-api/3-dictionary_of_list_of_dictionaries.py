@@ -14,11 +14,15 @@ if __name__ == '__main__':
             break
         tasks = requests.get(url + '/todos', params={'userId': usrid}).json()
         name = response.get('username')
+        usrtask = []
         for task in tasks:
             tstatus = task.get('completed')
             title = task.get('title')
-            dic[str(usrid)] = [{'username': name, 'task': title, 'completed': tstatus}]
-        
+            usrtask.append(
+                    {'username': name,
+                        'task': title,
+                        'completed': tstatus})
+        dic[str(usrid)] = usrtask        
         usrid += 1
-    with open(f'{usrid}.json', 'w') as jsonf:
+    with open('todo_all_employees.json', 'w') as jsonf:
         json.dump(dic, jsonf)
