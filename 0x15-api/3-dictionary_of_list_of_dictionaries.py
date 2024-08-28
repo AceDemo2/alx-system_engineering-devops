@@ -22,7 +22,7 @@ if __name__ == '__main__':
                     {'username': name,
                         'task': title,
                         'completed': tstatus})
-        dic[str(usrid)] = usrtask        
+        dic[str(usrid)] = usrtask
         usrid += 1
     with open('todo_all_employees.json', 'w') as jsonf:
         json.dump(dic, jsonf)
