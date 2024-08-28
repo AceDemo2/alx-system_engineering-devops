@@ -18,6 +18,6 @@ if __name__ == '__main__':
             title = task.get('title')
             dic[usrid].append(
                     {'task': title,
-                    'completed': tstatus,
-                    'username': name})
+                        'completed': tstatus,
+                        'username': name})
         json.dump(dic, jsonf)
