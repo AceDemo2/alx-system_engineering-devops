@@ -17,10 +17,11 @@ def top_ten(subreddit):
 
     user_agent = {'User-agent': 'my-reddit-app'}
     params = {'limit': 10}
-    url = f'https://www.reddit.com/r/{subreddit}/hot/.json'
+    url = ('https://www.reddit.com/r/{}/hot/.json'.format(subreddit))
 
     try:
-        response = get(url, headers=user_agent, params=params, allow_redirects=False)
+        response = get(url, headers=user_agent, params=params,
+                       allow_redirects=False)
 
         if response.status_code != 200:
             print("None")
@@ -41,6 +42,6 @@ def top_ten(subreddit):
         for post in my_data:
             print(post.get('data', {}).get('title', "None"))
 
-    except Exception as e:
+    except Exception:
         print("None")
 
