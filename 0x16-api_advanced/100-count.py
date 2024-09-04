@@ -1,54 +1,32 @@
 #!/usr/bin/python3
 """ raddit api"""
 
-import json
 import requests
 
 
-def count_words(subreddit, word_list, after="", count=[]):
+def count_words(subreddit, word_list, after=None, counts={}):
     """count all words"""
+    url = f"https://www.reddit.com/r/{subreddit}/hot.json"
+    head = {'User-Agent': 'law'}
+    params = {'after': after}
+    res = requests.get(url, headers=head, params=params, allow_redirects=False)
+    if re.status_code != 200:
+        return None
+    data = res.json()['data']
+    after = data['after']
+    ch = data['children']
+    for i in word_list:
+        counts[i.lower()] = 0
+    for j in ch:
+        title = j['data']['title'].lower()
+        for k in word_list:
+            if k in title.lower():
+                count[k] += title.count(k)
+    if after:
+        count_words(subreddit, word_list, after, counts)
+    else:
+        sc = sorted(counts.items(), key=lambda x: (-x[1], x[0]))
+        for i, j in sc:
+            if j > 0:
+                print(f'{i}: {j}')
 
-    if after == "":
-        count = [0] * len(word_list)
-
-    url = "https://www.reddit.com/r/{}/hot.json".format(subreddit)
-    request = requests.get(url,
-                           params={'after': after},
-                           allow_redirects=False,
-                           headers={'user-agent': 'bhalut'})
-
-    if request.status_code == 200:
-        data = request.json()
-
-        for topic in (data['data']['children']):
-            for word in topic['data']['title'].split():
-                for i in range(len(word_list)):
-                    if word_list[i].lower() == word.lower():
-                        count[i] += 1
-
-        after = data['data']['after']
-        if after is None:
-            save = []
-            for i in range(len(word_list)):
-                for j in range(i + 1, len(word_list)):
-                    if word_list[i].lower() == word_list[j].lower():
-                        save.append(j)
-                        count[i] += count[j]
-
-            for i in range(len(word_list)):
-                for j in range(i, len(word_list)):
-                    if (count[j] > count[i] or
-                            (word_list[i] > word_list[j] and
-                             count[j] == count[i])):
-                        aux = count[i]
-                        count[i] = count[j]
-                        count[j] = aux
-                        aux = word_list[i]
-                        word_list[i] = word_list[j]
-                        word_list[j] = aux
-
-            for i in range(len(word_list)):
-                if (count[i] > 0) and i not in save:
-                    print("{}: {}".format(word_list[i].lower(), count[i]))
-        else:
-            count_words(subreddit, word_list, after, count)
