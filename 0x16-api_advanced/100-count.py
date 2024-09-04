@@ -31,4 +31,3 @@ def count_words(subreddit, word_list, after=None, counts=None):
         for i, j in sc:
             if j > 0:
                 print(f'{i}: {j}')
-
