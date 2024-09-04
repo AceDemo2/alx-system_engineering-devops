@@ -4,7 +4,7 @@
 import requests
 
 
-def count_words(subreddit, word_list, after=None, counts={}):
+def count_words(subreddit, word_list, after=None, counts=None):
     """count all words"""
     url = f"https://www.reddit.com/r/{subreddit}/hot.json"
     head = {'User-Agent': 'law'}
@@ -15,8 +15,9 @@ def count_words(subreddit, word_list, after=None, counts={}):
     data = res.json()['data']
     after = data['after']
     ch = data['children']
-    for i in word_list:
-        counts[i.lower()] = 0
+    if not counts:
+        for i in word_list:
+            counts[i.lower()] = 0
     for j in ch:
         title = j['data']['title'].lower()
         for k in word_list:
