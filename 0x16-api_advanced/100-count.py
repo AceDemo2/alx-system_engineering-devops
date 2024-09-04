@@ -10,19 +10,20 @@ def count_words(subreddit, word_list, after=None, counts=None):
     head = {'User-Agent': 'law'}
     params = {'after': after}
     res = requests.get(url, headers=head, params=params, allow_redirects=False)
-    if re.status_code != 200:
+    if res.status_code != 200:
         return None
     data = res.json()['data']
     after = data['after']
     ch = data['children']
     if not counts:
+        counts = {}
         for i in word_list:
             counts[i.lower()] = 0
     for j in ch:
         title = j['data']['title'].lower()
         for k in word_list:
             if k in title.lower():
-                count[k] += title.count(k)
+                counts[k] += title.count(k)
     if after:
         count_words(subreddit, word_list, after, counts)
     else:
